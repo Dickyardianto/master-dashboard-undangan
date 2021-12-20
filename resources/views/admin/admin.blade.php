@@ -9,20 +9,22 @@
   </div>
 </div>
 <div class="section-body">
-    <div class="row">
-      <div class="col-md-5">
-        @if (session('message'))
-            <div class="alert alert-success autoHide alert-dismissible show fade">
-              <div class="alert-body">
-                <button class="close" data-dismis="alert">
-                  <span>x</span>
-                </button>
-                {{ session('message') }}
-              </div>
+  <div class="row">
+    <div class="col-md-4">
+      @if (session('message'))
+          <div class="alert alert-success autoHide alert-dismissible show fade">
+            <div class="alert-body">
+              <button class="close" data-dismis="alert">
+                <span>x</span>
+              </button>
+              {{ session('message') }}
             </div>
-        @endif
-      </div>
-      <div class="col-8">
+          </div>
+      @endif
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-4">
         <div class="card">
           <div class="card-body">
               <form action="{{ route('update-admin', Auth::user()->id) }}" method="POST">

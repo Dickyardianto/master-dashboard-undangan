@@ -11,26 +11,27 @@
 </div>
 
 <div class="section-body">
-    <div class="row">
-      <div class="col-10">
-        @if (session('message'))
-            <div class="alert alert-success autoHide alert-dismissible show fade">
-              <div class="alert-body">
-                <button class="close" data-dismis="alert">
-                  <span>x</span>
-                </button>
-                {{ session('message') }}
-              </div>
+  <div class="row">
+    <div class="col-5">
+      @if (session('message'))
+          <div class="alert alert-success autoHide alert-dismissible show fade">
+            <div class="alert-body">
+              <button class="close" data-dismis="alert">
+                <span>x</span>
+              </button>
+              {{ session('message') }}
             </div>
-        @endif
-
-      </div>
+          </div>
+      @endif
+    </div>
+  </div>
+    <div class="row">
       <div class="col-5">
         <div class="card">
           <form action="{{ route('input-data-pengantin', $id_client) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="card-body" style="padding-bottom: 0px">
-              <div class="form-group">
+            <div class="card-body" style="padding-bottom: 0px;">
+              <div class="form-group" style="margin-bottom: 0px;">
                 <label>Nama Pengantin Pria</label>
                 <input type="text" class="form-control" name="nama_pengantin_pria" value="{{ old('nama_pengantin_pria') }}">
                 <label for="" class="text-danger">
