@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'auth\AuthController@login')->name('login');
 Route::post('login', 'auth\AuthController@loginExec')->name('login-exec');
 
-Route::group(['middleware' => 'CekLoginMiddleware'], function() {
+// Route::group(['middleware' => 'CekLoginMiddleware'], function() {
+Route::group(['middleware' => 'auth'], function() {
     // AUTH
     Route::get('logout', 'auth\AuthController@logoutExec')->name('logout-exec');
     
@@ -29,6 +30,10 @@ Route::group(['middleware' => 'CekLoginMiddleware'], function() {
     Route::post('/createdata', 'DashboardController@createData')->name('create-data');
     Route::delete('delete/{id}', 'DashboardController@deleteData')->name('delete-data');
     Route::get('edit/{id}', 'DashboardController@editData')->name('edit-data');
-    Route::patch('edit/{id}/update', 'DashboardController@updateData')->name('update-data');
+    Route::patch('edit/{id}/updateCrud', 'DashboardController@updateData')->name('update-data');
+    
+    // Profil Admin
+    Route::get('/profiladmin', 'admin\AdminController@index')->name('profil-admin');
+    Route::patch('edit/{id}/update', 'admin\AdminController@update')->name('update-admin');
 });
 
