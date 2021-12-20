@@ -17,7 +17,7 @@
           <form action="{{ route('create-data') }}" method="POST">
             @csrf
             <div class="card-body" style="padding-bottom: 0px">
-              <div class="form-group">
+              <div class="form-group" style="margin-bottom: 0px">
                 <label>Nama Client</label>
                 <input type="text" class="form-control" name="nama_client" value="{{ old('nama_client') }}">
                 <label for="" class="text-danger">

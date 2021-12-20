@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'DashboardController@index')->name('index');
+// auth
+Route::get('/', 'AuthController@login')->name('login');
+
+Route::get('/dashboard', 'DashboardController@index')->name('index');
 Route::get('/tambahdata', 'DashboardController@tambahData')->name('tambah-data');
 
 // CRUD DATA
