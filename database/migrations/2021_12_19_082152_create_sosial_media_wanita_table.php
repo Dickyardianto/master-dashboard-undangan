@@ -1,0 +1,42 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateSosialMediaWanitaTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('sosial_media_wanita', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('instagram', 100)->nullable();
+            $table->string('twitter', 100)->nullable();
+            $table->string('facebook', 100)->nullable();
+            $table->integer('id_pengantin_wanita')->unsigned()
+            ->nullable()
+            ->index();
+            $table->timestamps();
+
+            $table->foreign('id_pengantin_wanita')
+            ->references('id')
+            ->on('pengantin_wanita')
+            ->onUpdate('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('sosial_media_wanita');
+    }
+}

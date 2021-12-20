@@ -1,0 +1,10 @@
+.alert {
+    animation: autoHide 0s ease-in 3s forwards;
+}
+
+@keyframes autoHide {
+    to {
+      visibility: hidden;
+      position: absolute;
+    }
+} 
