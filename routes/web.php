@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,15 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// auth
-Route::get('/', 'AuthController@login')->name('login');
+// AUTH
+Route::get('/', 'auth\AuthController@login')->name('login');
+Route::post('login', 'auth\AuthController@loginExec')->name('login-exec');
 
-Route::get('/dashboard', 'DashboardController@index')->name('index');
-Route::get('/tambahdata', 'DashboardController@tambahData')->name('tambah-data');
-
-// CRUD DATA
-Route::post('/createdata', 'DashboardController@createData')->name('create-data');
-Route::delete('delete/{id}', 'DashboardController@deleteData')->name('delete-data');
-Route::get('edit/{id}', 'DashboardController@editData')->name('edit-data');
-Route::patch('edit/{id}/update', 'DashboardController@updateData')->name('update-data');
+Route::group(['middleware' => 'CekLoginMiddleware'], function() {
+    // AUTH
+    Route::get('logout', 'auth\AuthController@logoutExec')->name('logout-exec');
+    
+    Route::get('/dashboard', 'DashboardController@index')->name('index');
+    Route::get('/tambahdata', 'DashboardController@tambahData')->name('tambah-data');
+    
+    // CRUD DATA
+    Route::post('/createdata', 'DashboardController@createData')->name('create-data');
+    Route::delete('delete/{id}', 'DashboardController@deleteData')->name('delete-data');
+    Route::get('edit/{id}', 'DashboardController@editData')->name('edit-data');
+    Route::patch('edit/{id}/update', 'DashboardController@updateData')->name('update-data');
+});
 
