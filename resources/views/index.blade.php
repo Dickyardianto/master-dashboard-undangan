@@ -63,6 +63,7 @@
                         </form>
                         Hapus
                       </a>
+                      <a href="{{ route('isi-data-pengantin', $data->id) }}" class="btn btn-primary">Isi data</a>
                     </td>
                   </tr>
                   @endforeach

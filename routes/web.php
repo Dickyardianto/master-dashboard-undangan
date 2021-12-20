@@ -35,5 +35,9 @@ Route::group(['middleware' => 'auth'], function() {
     // Profil Admin
     Route::get('/profiladmin', 'admin\AdminController@index')->name('profil-admin');
     Route::patch('edit/{id}/update', 'admin\AdminController@update')->name('update-admin');
+
+    // Isi Data Client
+    Route::get('/isidatapengantin/{id}', 'client\PengantinController@formData')->name('isi-data-pengantin');
+    Route::post('/isidatapengantin/{id}', 'client\PengantinController@inputDataPengantinPria')->name('input-data-pengantin');
 });
 

@@ -31,7 +31,7 @@
                 <table>
                     <tr>
                         <td>Nama</td>
-                        <td>:</td>
+                        <td width="20">:</td>
                         <td>
                             <input type="text" class="form-control" name="name" value="{{ Auth::user()->name }}">
                         </td>
