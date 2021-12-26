@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIdClientToPengantinPriaTable extends Migration
+class AddIdClientForeignKeyToPengantinPriaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,14 @@ class AddIdClientToPengantinPriaTable extends Migration
     public function up()
     {
         Schema::table('pengantin_pria', function (Blueprint $table) {
-            $table->integer('id_client')->after('nama_pengantin_pria');
+            $table->integer('id_client')->after('nama_pengantin_pria')->unsigned()
+            ->nullable()
+            ->index();
+
+            $table->foreign('id_client')
+            ->references('id')
+            ->on('tema')
+            ->onDelete('cascade');
         });
     }
 
