@@ -75,7 +75,7 @@
       @else 
       <div class="col-5">
         <div class="card">
-          <form action="{{ route('input-besan-pria', $id_client) }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('input-resepsi', $id_client) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body" style="padding-bottom: 0px;">
                 <div class="form-group" style="margin-bottom: 0px;">
