@@ -28,29 +28,29 @@
     <div class="row">
 
       {{-- Pengantin Pria --}}
-      @if ($data_pengantin_wanita != null)
+      @if ($alamat_nikah != null)
       <div class="col-5">
         <label for="" class="text-danger">
-            Nama pengantin wanita sudah terisi
+            Alamat nikah sudah terisi
         </label>
         <div class="card">
           <form action="">
             @csrf
             <div class="card-body" style="padding-bottom: 0px;">
               <div class="form-group" style="margin-bottom: 0px;">
-                <label>Nama Pengantin Wanita</label>
-                <input type="text" class="form-control" name="nama_pengantin_wanita" value="{{ old('nama_pengantin_wanita') }}" disabled>
+                <label>Alamat Nikah</label>
+                <input type="text" class="form-control" name="alamat_nikah" value="{{ old('alamat_nikah') }}" disabled>
                 <label for="" class="text-danger">
-                  @error('nama_pengantin_wanita')
+                  @error('alamat_nikah')
                     {{ $message }}
                   @enderror
                 </label>
               </div>
               <div class="mb-3">
-                  <label for="formFile" class="form-label">Foto Utama</label>
-                  <input class="form-control" type="file" id="formFile" name="file_foto_utama" disabled>
+                  <label for="tanggal-nikah" class="form-label">Tanggal Nikah</label>
+                  <input class="form-control" type="date" id="tanggal-nikah" name="tanggal_nikah" disabled>
                   <label for="" class="text-danger">
-                    @error('file_foto_utama')
+                    @error('tanggal_nikah')
                       {{ $message }}
                     @enderror
                   </label>
@@ -66,23 +66,23 @@
       @else 
       <div class="col-5">
         <div class="card">
-          <form action="{{ route('input-data-pengantin-wanita', $id_client) }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('input-alamat-nikah', $id_client) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body" style="padding-bottom: 0px;">
               <div class="form-group" style="margin-bottom: 0px;">
-                <label>Nama Pengantin Wanita</label>
-                <input type="text" class="form-control" name="nama_pengantin_wanita" value="{{ old('nama_pengantin_wanita') }}">
+                <label>Alamat Nikah</label>
+                <input type="text" class="form-control" name="alamat_nikah" value="{{ old('alamat_nikah') }}">
                 <label for="" class="text-danger">
-                  @error('nama_pengantin_wanita')
+                  @error('alamat_nikah')
                     {{ $message }}
                   @enderror
                 </label>
               </div>
               <div class="mb-3">
-                  <label for="formFile" class="form-label">Foto Utama</label>
-                  <input class="form-control" type="file" id="formFile" name="file_foto_utama">
+                  <label for="tanggal-nikah" class="form-label">Tanggal Nikah</label>
+                  <input class="form-control" type="date" id="tanggal-nikah" name="tanggal_nikah">
                   <label for="" class="text-danger">
-                    @error('file_foto_utama')
+                    @error('tanggal_nikah')
                       {{ $message }}
                     @enderror
                   </label>

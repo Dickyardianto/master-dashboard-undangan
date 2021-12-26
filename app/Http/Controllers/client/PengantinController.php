@@ -98,5 +98,37 @@ class PengantinController extends Controller
         ->first();
         return view('clients.isiDataPengantinWanita', ['id_client' => $id, 'data_pengantin_wanita' => $data_pengantin_wanita]);
     }
+
+    public function formAlamat(Request $request) {
+        $id = $request->id;
+        $alamat_nikah = DB::table('alamat_nikah_master_2')
+        ->first();
+        return view('clients.alamatNikahPengantin', ['id_client' => $id, 'alamat_nikah' => $alamat_nikah]);
+    }
+
+    public function inputAlamatNikah(Request $data, $id) {
+        $data->validate(
+            [
+                'alamat_nikah' => 'required|max:150|min:5',
+                'tanggal_nikah' => 'required'
+            ],
+            [
+                'alamat_nikah.required' => 'Alamat nikah harus diisi!',
+                'alamat_nikah.max' => 'Maksimal 150 karakter!',
+                'alamat_nikah.min' => 'Mohon lengkapi beserta alamat lengkap!',
+                'tanggal_nikah.required' => 'Tanggal nikah harus diisi!',
+            ]
+        );
+
+        DB::table('alamat_nikah_master_2')->insert(
+            [
+             'id_client' => $id,
+             'alamat_nikah' => $data->alamat_nikah,
+             'tanggal_nikah' => $data->tanggal_nikah            
+            ]
+        );
+
+        return back()->with('message', 'Data Berhasil Disimpan');
+    }
     
 }

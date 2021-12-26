@@ -37,10 +37,14 @@ Route::group(['middleware' => 'auth'], function() {
     Route::patch('edit/{id}/update', 'admin\AdminController@update')->name('update-admin');
 
     // Isi Data Client
+        // Nama Pengantin Pria
     Route::get('/isidatapengantin/{id}', 'client\PengantinController@formData')->name('isi-data-pengantin');
     Route::post('/isidatapengantin/{id}', 'client\PengantinController@inputDataPengantinPria')->name('input-data-pria');
-
+        // Nama Pengantin Wanita
     Route::get('/formdatawanita/{id}', 'client\PengantinController@formDataWanita')->name('form-data-pengantin-wanita');
     Route::post('/isidatapengantinpria/{id}', 'client\PengantinController@inputDataPengantinWanita')->name('input-data-pengantin-wanita');
+    // Alamat Pengantin
+    Route::get('/formalamatnikah/{id}', 'client\PengantinController@formAlamat')->name('alamat-pengantin');
+    Route::post('/inputalamatnikah/{id}', 'client\PengantinController@inputAlamatNikah')->name('input-alamat-nikah');
 });
 
