@@ -58,7 +58,7 @@
             </div>
             <div class="card-footer text-right" style="padding-top: 0px">
               <a href="{{ route('index') }}" class="btn btn-secondary">Kembali</a>
-              <a href="{{ route('alamat-pengantin', $id_client) }}" class="btn btn-info ml-1">Lanjut</a>
+              <a href="{{ route('form-resepsi', $id_client) }}" class="btn btn-info ml-1">Lanjut</a>
             </div>
           </form>
           </div>

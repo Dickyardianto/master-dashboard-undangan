@@ -43,8 +43,11 @@ Route::group(['middleware' => 'auth'], function() {
         // Nama Pengantin Wanita
     Route::get('/formdatawanita/{id}', 'client\PengantinController@formDataWanita')->name('form-data-pengantin-wanita');
     Route::post('/isidatapengantinpria/{id}', 'client\PengantinController@inputDataPengantinWanita')->name('input-data-pengantin-wanita');
-    // Alamat Pengantin
+        // Alamat Pengantin
     Route::get('/formalamatnikah/{id}', 'client\PengantinController@formAlamat')->name('alamat-pengantin');
     Route::post('/inputalamatnikah/{id}', 'client\PengantinController@inputAlamatNikah')->name('input-alamat-nikah');
+    // Resepsi
+    Route::get('/formresepsi/{id}', 'client\PengantinController@formResepsi')->name('form-resepsi');
+    Route::post('/inputresepsi/{id}', 'client\PengantinController@inputResepsi')->name('input-resepsi');
 });
 

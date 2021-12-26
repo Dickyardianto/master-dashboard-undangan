@@ -130,5 +130,40 @@ class PengantinController extends Controller
 
         return back()->with('message', 'Data Berhasil Disimpan');
     }
+
+    public function formResepsi(Request $request) {
+        $id = $request->id;
+        $resepsi = DB::table('resepsi_master')
+        ->first();
+        return view('clients.formResepsi', ['id_client' => $id, 'resepsi' => $resepsi]);
+    }
+
+    public function inputResepsi(Request $data, $id) {
+        $data->validate(
+            [
+                'tanggal_resepsi' => 'required',
+                'pukul_resepsi' => 'required',
+                'lokasi_resepsi' => 'required|max:150|min:5'
+            ],
+            [
+                'tanggal_resepsi.required' => 'Tanggal resepsi harus diisi!',
+                'pukul_resepsi.required' => 'Pukul resepsi harus diisi!',
+                'lokasi_resepsi.required' => 'Lokasi resepsi harus diisi!',
+                'lokasi_resepsi.max' => 'Batas karakter hanya 150!',
+                'lokasi_resepsi.min' => 'Mohon lengkapi beserta alamat lengkap!'
+            ]
+        );
+
+        DB::table('resepsi_master')->insert(
+            [
+             'id_client' => $id,
+             'tanggal_resepsi' => $data->tanggal_resepsi,
+             'pukul' => $data->pukul_resepsi,            
+             'lokasi_resepsi' => $data->lokasi_resepsi            
+            ]
+        );
+
+        return back()->with('message', 'Data Berhasil Disimpan');
+    }
     
 }
