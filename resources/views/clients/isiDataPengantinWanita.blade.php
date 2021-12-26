@@ -28,20 +28,20 @@
     <div class="row">
 
       {{-- Pengantin Pria --}}
-      @if ($data_pengantin_pria != null)
+      @if ($data_pengantin_wanita != null)
       <div class="col-5">
         <label for="" class="text-danger">
-            Nama pengantin pria sudah terisi
+            Nama pengantin wanita sudah terisi
         </label>
         <div class="card">
-          <form action="{{ route('input-data-pria', $id_client) }}" method="POST" enctype="multipart/form-data">
+          <form action="">
             @csrf
             <div class="card-body" style="padding-bottom: 0px;">
               <div class="form-group" style="margin-bottom: 0px;">
-                <label>Nama Pengantin Pria</label>
-                <input type="text" class="form-control" name="nama_pengantin_pria" value="{{ old('nama_pengantin_pria') }}" disabled>
+                <label>Nama Pengantin Wanita</label>
+                <input type="text" class="form-control" name="nama_pengantin_wanita" value="{{ old('nama_pengantin_wanita') }}" disabled>
                 <label for="" class="text-danger">
-                  @error('nama_pengantin_pria')
+                  @error('nama_pengantin_wanita')
                     {{ $message }}
                   @enderror
                 </label>
@@ -58,7 +58,7 @@
             </div>
             <div class="card-footer text-right" style="padding-top: 0px">
               <a href="{{ route('index') }}" class="btn btn-secondary">Kembali</a>
-              <a href="{{ route('form-data-pengantin-wanita', $id_client) }}" class="btn btn-info ml-1">Lanjut</a>
+              <a href="{{ route('input-data-pengantin-wanita', $id_client) }}" class="btn btn-info ml-1">Lanjut</a>
             </div>
           </form>
           </div>
@@ -66,14 +66,14 @@
       @else 
       <div class="col-5">
         <div class="card">
-          <form action="{{ route('input-data-pria', $id_client) }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('input-data-pengantin-wanita', $id_client) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body" style="padding-bottom: 0px;">
               <div class="form-group" style="margin-bottom: 0px;">
-                <label>Nama Pengantin Pria</label>
-                <input type="text" class="form-control" name="nama_pengantin_pria" value="{{ old('nama_pengantin_pria') }}">
+                <label>Nama Pengantin Wanita</label>
+                <input type="text" class="form-control" name="nama_pengantin_wanita" value="{{ old('nama_pengantin_wanita') }}">
                 <label for="" class="text-danger">
-                  @error('nama_pengantin_pria')
+                  @error('nama_pengantin_wanita')
                     {{ $message }}
                   @enderror
                 </label>

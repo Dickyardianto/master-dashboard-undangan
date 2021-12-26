@@ -38,6 +38,9 @@ Route::group(['middleware' => 'auth'], function() {
 
     // Isi Data Client
     Route::get('/isidatapengantin/{id}', 'client\PengantinController@formData')->name('isi-data-pengantin');
-    Route::post('/isidatapengantin/{id}', 'client\PengantinController@inputDataPengantinPria')->name('input-data-pengantin');
+    Route::post('/isidatapengantin/{id}', 'client\PengantinController@inputDataPengantinPria')->name('input-data-pria');
+
+    Route::get('/formdatawanita/{id}', 'client\PengantinController@formDataWanita')->name('form-data-pengantin-wanita');
+    Route::post('/isidatapengantinpria/{id}', 'client\PengantinController@inputDataPengantinWanita')->name('input-data-pengantin-wanita');
 });
 

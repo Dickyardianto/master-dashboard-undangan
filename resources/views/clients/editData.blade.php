@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Tambah Data | Undangan Online')
+@section('title', 'Edit Data | Undangan Online')
 
 @section('content')
 <div class="section-header">
