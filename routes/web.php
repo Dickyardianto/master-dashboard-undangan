@@ -46,8 +46,11 @@ Route::group(['middleware' => 'auth'], function() {
         // Alamat Pengantin
     Route::get('/formalamatnikah/{id}', 'client\PengantinController@formAlamat')->name('alamat-pengantin');
     Route::post('/inputalamatnikah/{id}', 'client\PengantinController@inputAlamatNikah')->name('input-alamat-nikah');
-    // Resepsi
+        // Resepsi
     Route::get('/formresepsi/{id}', 'client\PengantinController@formResepsi')->name('form-resepsi');
     Route::post('/inputresepsi/{id}', 'client\PengantinController@inputResepsi')->name('input-resepsi');
+    // Besan Pria
+    Route::get('/formbesanpria/{id}', 'client\PengantinController@formBesanPria')->name('form-besan-pria');
+    Route::post('/inputbesanpria/{id}', 'client\PengantinController@inputBesanPria')->name('input-besan-pria');
 });
 

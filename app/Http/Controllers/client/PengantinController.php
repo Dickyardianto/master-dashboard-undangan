@@ -165,5 +165,39 @@ class PengantinController extends Controller
 
         return back()->with('message', 'Data Berhasil Disimpan');
     }
+
+    public function formBesanPria(Request $request) {
+        $id = $request->id;
+        $besan_pria = DB::table('besan_pria')
+        ->first();
+        return view('clients.formBesanPria', ['id_client' => $id, 'besan_pria' => $besan_pria]);
+    }
+
+    public function inputBesanPria(Request $data, $id) {
+        $data->validate(
+            [
+                'nama_ayah' => 'required|max:150|min:5',
+                'nama_ibu' => 'required|max:150|min:5'
+            ],
+            [
+                'nama_ayah.required' => 'Nama ayah harus diisi!',
+                'nama_ayah.max' => 'Batas karakter hanya 150!',
+                'nama_ayah.min' => 'Min karakter 5!',
+                'nama_ibu.required' => 'Nama ibu harus diisi!',
+                'nama_ibu.max' => 'Batas karakter hanya 150!',
+                'nama_ibu.min' => 'Min karakter 5!'
+            ]
+        );
+
+        DB::table('besan_pria')->insert(
+            [
+             'id_client' => $id,
+             'nama_ayah' => $data->nama_ayah,
+             'nama_ibu' => $data->nama_ibu          
+            ]
+        );
+
+        return back()->with('message', 'Data Berhasil Disimpan');
+    }
     
 }

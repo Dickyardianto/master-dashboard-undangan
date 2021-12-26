@@ -17,15 +17,6 @@ class CreateBesanPriaTable extends Migration
             $table->increments('id');
             $table->string('nama_ayah', 150)->nullable();
             $table->string('nama_ibu', 150)->nullable();
-            $table->integer('id_pengantin_pria')->unsigned()
-            ->nullable()
-            ->index();
-            $table->timestamps();
-
-            $table->foreign('id_pengantin_pria')
-            ->references('id')
-            ->on('pengantin_pria')
-            ->onUpdate('cascade');
         });
     }
 

@@ -17,15 +17,6 @@ class CreateBesanWanitaTable extends Migration
             $table->increments('id');
             $table->string('nama_ayah', 150)->nullable();
             $table->string('nama_ibu', 150)->nullable();
-            $table->integer('id_pengantin_wanita')->unsigned()
-            ->nullable()
-            ->index();
-            $table->timestamps();
-
-            $table->foreign('id_pengantin_wanita')
-            ->references('id')
-            ->on('pengantin_wanita')
-            ->onUpdate('cascade');
         });
     }
 
