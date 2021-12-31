@@ -28,37 +28,39 @@
     <div class="row">
 
       {{-- Pengantin Pria --}}
-      @if ($data_pengantin_wanita != null)
+      @if ($besan_wanita != null)
       <div class="col-5">
         <label for="" class="text-danger">
-            Nama pengantin wanita sudah terisi
+            Besan wanita sudah terisi
         </label>
         <div class="card">
           <form action="">
             @csrf
             <div class="card-body" style="padding-bottom: 0px;">
+
               <div class="form-group" style="margin-bottom: 0px;">
-                <label>Nama Pengantin Wanita</label>
-                <input type="text" class="form-control" name="nama_pengantin_wanita" value="{{ old('nama_pengantin_wanita') }}" disabled>
+                <label>Nama ayah besan wanita</label>
+                <input type="text" class="form-control" name="nama_ayah" value="{{ old('nama_ayah') }}" disabled>
                 <label for="" class="text-danger">
-                  @error('nama_pengantin_wanita')
+                  @error('nama_ayah')
                     {{ $message }}
                   @enderror
                 </label>
               </div>
               <div class="mb-3">
-                  <label for="formFile" class="form-label">Foto Utama</label>
-                  <input class="form-control" type="file" id="formFile" name="file_foto_utama" disabled>
+                  <label for="nama-ibu" class="form-label">Nama ibu besan wanita</label>
+                  <input class="form-control" type="text" id="nama-ibu" name="nama_ibu" disabled>
                   <label for="" class="text-danger">
-                    @error('file_foto_utama')
+                    @error('nama_ibu')
                       {{ $message }}
                     @enderror
                   </label>
               </div>
+
             </div>
             <div class="card-footer text-right" style="padding-top: 0px">
               <a href="{{ route('index') }}" class="btn btn-secondary">Kembali</a>
-              <a href="{{ route('alamat-pengantin', $id_client) }}" class="btn btn-info ml-1">Lanjut</a>
+              <a href="{{ route('form-akad', $id_client) }}" class="btn btn-info ml-1">Lanjut</a>
             </div>
           </form>
           </div>
@@ -66,27 +68,27 @@
       @else 
       <div class="col-5">
         <div class="card">
-          <form action="{{ route('input-data-pengantin-wanita', $id_client) }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('input-besan-wanita', $id_client) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body" style="padding-bottom: 0px;">
-              <div class="form-group" style="margin-bottom: 0px;">
-                <label>Nama Pengantin Wanita <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="nama_pengantin_wanita" value="{{ old('nama_pengantin_wanita') }}">
-                <label for="" class="text-danger">
-                  @error('nama_pengantin_wanita')
-                    {{ $message }}
-                  @enderror
-                </label>
-              </div>
-              <div class="mb-3">
-                  <label for="formFile" class="form-label">Foto Utama <span class="text-danger">*</span></label>
-                  <input class="form-control" type="file" id="formFile" name="file_foto_utama">
-                  <label for="" class="text-danger">
-                    @error('file_foto_utama')
-                      {{ $message }}
-                    @enderror
-                  </label>
-              </div>
+                  <div class="form-group" style="margin-bottom: 0px;">
+                    <label>Nama ayah besan wanita <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="nama_ayah" value="{{ old('nama_ayah') }}">
+                    <label for="" class="text-danger">
+                      @error('nama_ayah')
+                        {{ $message }}
+                      @enderror
+                    </label>
+                  </div>
+                  <div class="mb-3">
+                      <label for="nama-ibu" class="form-label">Nama ibu besan wanita <span class="text-danger">*</span></label>
+                      <input class="form-control" type="text" id="nama-ibu" name="nama_ibu" value="{{ old('nama_ibu') }}">
+                      <label for="" class="text-danger">
+                        @error('nama_ibu')
+                          {{ $message }}
+                        @enderror
+                      </label>
+                  </div>
             </div>
             <div class="card-footer text-right" style="padding-top: 0px">
               <a href="{{ route('index') }}" class="btn btn-secondary">Kembali</a>

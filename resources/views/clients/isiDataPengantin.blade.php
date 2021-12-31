@@ -70,7 +70,7 @@
             @csrf
             <div class="card-body" style="padding-bottom: 0px;">
               <div class="form-group" style="margin-bottom: 0px;">
-                <label>Nama Pengantin Pria</label>
+                <label>Nama Pengantin Pria <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" name="nama_pengantin_pria" value="{{ old('nama_pengantin_pria') }}">
                 <label for="" class="text-danger">
                   @error('nama_pengantin_pria')
@@ -79,7 +79,7 @@
                 </label>
               </div>
               <div class="mb-3">
-                  <label for="formFile" class="form-label">Foto Utama</label>
+                  <label for="formFile" class="form-label">Foto Utama <span class="text-danger">*</span></label>
                   <input class="form-control" type="file" id="formFile" name="file_foto_utama">
                   <label for="" class="text-danger">
                     @error('file_foto_utama')

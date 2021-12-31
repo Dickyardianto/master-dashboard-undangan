@@ -199,5 +199,74 @@ class PengantinController extends Controller
 
         return back()->with('message', 'Data Berhasil Disimpan');
     }
+
+    public function formBesanWanita(Request $request) {
+        $id = $request->id;
+        $besan_wanita = DB::table('besan_wanita')
+        ->first();
+        return view('clients.formBesanWanita', ['id_client' => $id, 'besan_wanita' => $besan_wanita]);
+    }
+
+    public function inputBesanWanita(Request $data, $id) {
+        $data->validate(
+            [
+                'nama_ayah' => 'required|max:150|min:5',
+                'nama_ibu' => 'required|max:150|min:5'
+            ],
+            [
+                'nama_ayah.required' => 'Nama ayah harus diisi!',
+                'nama_ayah.max' => 'Batas karakter hanya 150!',
+                'nama_ayah.min' => 'Min karakter 5!',
+                'nama_ibu.required' => 'Nama ibu harus diisi!',
+                'nama_ibu.max' => 'Batas karakter hanya 150!',
+                'nama_ibu.min' => 'Min karakter 5!'
+            ]
+        );
+
+        DB::table('besan_wanita')->insert(
+            [
+             'id_client' => $id,
+             'nama_ayah' => $data->nama_ayah,
+             'nama_ibu' => $data->nama_ibu          
+            ]
+        );
+
+        return back()->with('message', 'Data Berhasil Disimpan');
+    }
+
+    public function formAkad(Request $request) {
+        $id = $request->id;
+        $akad_master = DB::table('akad_master')
+        ->first();
+        return view('clients.akadMaster', ['id_client' => $id, 'akad_master' => $akad_master]);
+    }
+
+    public function inputAkad(Request $data, $id) {
+        $data->validate(
+            [
+                'tanggal_akad' => 'required',
+                'pukul_akad' => 'required',
+                'lokasi_akad' => 'required|max:150|min:5'
+            ],
+            [
+                'tanggal_akad.required' => 'Tanggal akad harus diisi!',
+                'pukul_akad.required' => 'Pukul akad harus diisi!',
+                'lokasi_akad.required' => 'Lokasi akad harus diisi!',
+                'lokasi_akad.max' => 'Batas karakter hanya 150!',
+                'lokasi_akad.min' => 'Mohon lengkapi beserta alamat lengkap!'
+            ]
+        );
+
+        DB::table('akad_master')->insert(
+            [
+             'id_client' => $id,
+             'tanggal_akad' => $data->tanggal_akad,
+             'pukul' => $data->pukul_akad,            
+             'lokasi_akad' => $data->lokasi_akad            
+            ]
+        );
+
+        return back()->with('message', 'Data Berhasil Disimpan');
+    }
     
 }

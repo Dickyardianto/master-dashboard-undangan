@@ -27,43 +27,45 @@
   </div>
     <div class="row">
 
-      {{-- Pengantin Pria --}}
-      @if ($resepsi != null)
+      {{-- Akad --}}
+      @if ($akad_master != null)
       <div class="col-5">
         <label for="" class="text-danger">
-            Resepsi nikah sudah terisi
+            Akad nikah sudah terisi
         </label>
         <div class="card">
           <form action="">
             @csrf
             <div class="card-body" style="padding-bottom: 0px;">
+
               <div class="form-group" style="margin-bottom: 0px;">
-                <label>Tanggal Resepsi</label>
-                <input type="date" class="form-control" name="tanggal_resepsi" value="{{ old('tanggal_resepsi') }}" disabled>
+                <label>Tanggal Akad</label>
+                <input type="date" class="form-control" name="tanggal_akad" value="{{ old('tanggal_akad') }}" disabled>
                 <label for="" class="text-danger">
-                  @error('tanggal_resepsi')
+                  @error('tanggal_akad')
                     {{ $message }}
                   @enderror
                 </label>
               </div>
               <div class="mb-3">
-                  <label for="pukul" class="form-label">Pukul</label>
-                  <input class="form-control" type="time" id="pukul" name="pukul_resepsi" disabled>
-                  <label for="" class="text-danger">
-                    @error('pukul_resepsi')
-                      {{ $message }}
-                    @enderror
-                  </label>
+                <label for="pukul" class="form-label">Pukul</label>
+                <input class="form-control" type="time" id="pukul" name="pukul_akad" disabled>
+                <label for="" class="text-danger">
+                  @error('pukul_akad')
+                    {{ $message }}
+                  @enderror
+                </label>
               </div>
               <div class="mb-3">
                 <label for="lokasi" class="form-label">Lokasi</label>
-                <input class="form-control" type="text" id="lokasi" name="lokasi_resepsi" value="{{ old('lokasi_resepsi') }}" disabled>
+                <input class="form-control" type="text" id="lokasi" name="lokasi_akad" value="{{ old('lokasi_akad') }}" disabled>
                 <label for="" class="text-danger">
-                  @error('lokasi_resepsi')
+                  @error('lokasi_akad')
                     {{ $message }}
                   @enderror
                 </label>
-            </div>
+              </div>
+
             </div>
             <div class="card-footer text-right" style="padding-top: 0px">
               <a href="{{ route('index') }}" class="btn btn-secondary">Kembali</a>
@@ -75,36 +77,36 @@
       @else 
       <div class="col-5">
         <div class="card">
-          <form action="{{ route('input-resepsi', $id_client) }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('input-akad', $id_client) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body" style="padding-bottom: 0px;">
                 <div class="form-group" style="margin-bottom: 0px;">
-                    <label>Tanggal Resepsi <span class="text-danger">*</span></label>
-                    <input type="date" class="form-control" name="tanggal_resepsi" value="{{ old('tanggal_resepsi') }}">
+                    <label>Tanggal Akad <span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" name="tanggal_akad" value="{{ old('tanggal_akad') }}">
                     <label for="" class="text-danger">
-                      @error('tanggal_resepsi')
+                      @error('tanggal_akad')
                         {{ $message }}
                       @enderror
                     </label>
                   </div>
-                  <div class="">
-                      <label for="pukul" class="form-label">Pukul <span class="text-danger">*</span></label>
-                      <input class="form-control" type="time" id="pukul" name="pukul_resepsi" value="{{ old('pukul_resepsi') }}">
-                      <label for="" class="text-danger">
-                        @error('pukul_resepsi')
-                          {{ $message }}
-                        @enderror
-                      </label>
+                  <div class="mb-3">
+                    <label for="pukul" class="form-label">Pukul <span class="text-danger">*</span></label>
+                    <input class="form-control" type="time" id="pukul" name="pukul_akad" value="{{ old('pukul_akad') }}">
+                    <label for="" class="text-danger">
+                      @error('pukul_akad')
+                        {{ $message }}
+                      @enderror
+                    </label>
                   </div>
                   <div class="mb-3">
                     <label for="lokasi" class="form-label">Lokasi <span class="text-danger">*</span></label>
-                    <input class="form-control" type="text" id="lokasi" name="lokasi_resepsi" value="{{ old('lokasi_resepsi') }}">
+                    <input class="form-control" type="text" id="lokasi" name="lokasi_akad" value="{{ old('lokasi_akad') }}">
                     <label for="" class="text-danger">
-                      @error('lokasi_resepsi')
+                      @error('lokasi_akad')
                         {{ $message }}
                       @enderror
                     </label>
-                </div>
+                  </div>
             </div>
             <div class="card-footer text-right" style="padding-top: 0px">
               <a href="{{ route('index') }}" class="btn btn-secondary">Kembali</a>

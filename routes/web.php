@@ -49,8 +49,14 @@ Route::group(['middleware' => 'auth'], function() {
         // Resepsi
     Route::get('/formresepsi/{id}', 'client\PengantinController@formResepsi')->name('form-resepsi');
     Route::post('/inputresepsi/{id}', 'client\PengantinController@inputResepsi')->name('input-resepsi');
-    // Besan Pria
+        // Besan Pria
     Route::get('/formbesanpria/{id}', 'client\PengantinController@formBesanPria')->name('form-besan-pria');
     Route::post('/inputbesanpria/{id}', 'client\PengantinController@inputBesanPria')->name('input-besan-pria');
+        // Besan Wanita
+    Route::get('/formbesanwanita/{id}', 'client\PengantinController@formBesanWanita')->name('form-besan-wanita');
+    Route::post('/inputbesanwanita/{id}', 'client\PengantinController@inputBesanWanita')->name('input-besan-wanita');
+        // Besan Wanita
+    Route::get('/formakad/{id}', 'client\PengantinController@formAkad')->name('form-akad');
+    Route::post('/inputakad/{id}', 'client\PengantinController@inputAkad')->name('input-akad');
 });
 

@@ -60,7 +60,7 @@
             </div>
             <div class="card-footer text-right" style="padding-top: 0px">
               <a href="{{ route('index') }}" class="btn btn-secondary">Kembali</a>
-              <a href="{{ route('form-besan-pria', $id_client) }}" class="btn btn-info ml-1">Lanjut</a>
+              <a href="{{ route('form-besan-wanita', $id_client) }}" class="btn btn-info ml-1">Lanjut</a>
             </div>
           </form>
           </div>
@@ -72,7 +72,7 @@
             @csrf
             <div class="card-body" style="padding-bottom: 0px;">
                   <div class="form-group" style="margin-bottom: 0px;">
-                    <label>Nama ayah besan pria</label>
+                    <label>Nama ayah besan pria <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="nama_ayah" value="{{ old('nama_ayah') }}">
                     <label for="" class="text-danger">
                       @error('nama_ayah')
@@ -81,7 +81,7 @@
                     </label>
                   </div>
                   <div class="mb-3">
-                      <label for="nama-ibu" class="form-label">Nama ibu besan pria</label>
+                      <label for="nama-ibu" class="form-label">Nama ibu besan pria <span class="text-danger">*</span></label>
                       <input class="form-control" type="text" id="nama-ibu" name="nama_ibu" value="{{ old('nama_ibu') }}">
                       <label for="" class="text-danger">
                         @error('nama_ibu')

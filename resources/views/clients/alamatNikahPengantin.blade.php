@@ -70,7 +70,7 @@
             @csrf
             <div class="card-body" style="padding-bottom: 0px;">
               <div class="form-group" style="margin-bottom: 0px;">
-                <label>Alamat Nikah</label>
+                <label>Alamat Nikah <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" name="alamat_nikah" value="{{ old('alamat_nikah') }}">
                 <label for="" class="text-danger">
                   @error('alamat_nikah')
@@ -79,7 +79,7 @@
                 </label>
               </div>
               <div class="mb-3">
-                  <label for="tanggal-nikah" class="form-label">Tanggal Nikah</label>
+                  <label for="tanggal-nikah" class="form-label">Tanggal Nikah <span class="text-danger">*</span></label>
                   <input class="form-control" type="date" id="tanggal-nikah" name="tanggal_nikah">
                   <label for="" class="text-danger">
                     @error('tanggal_nikah')
