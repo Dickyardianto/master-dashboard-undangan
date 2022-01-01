@@ -19,15 +19,7 @@ class CreatePendukungMasterTable extends Migration
             $table->string('ayat_quotes', 250)->nullable();
             $table->string('maps', 200)->nullable();
             $table->string('quotes_akhir', 250)->nullable();
-            $table->integer('id_pendukung')->unsigned()
-            ->nullable()
-            ->index();
             $table->timestamps();
-
-            $table->foreign('id_pendukung')
-            ->references('id')
-            ->on('pendukung')
-            ->onUpdate('cascade');
         });
     }
 

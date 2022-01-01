@@ -18,15 +18,7 @@ class CreateSosialMediaWanitaTable extends Migration
             $table->string('instagram', 100)->nullable();
             $table->string('twitter', 100)->nullable();
             $table->string('facebook', 100)->nullable();
-            $table->integer('id_pengantin_wanita')->unsigned()
-            ->nullable()
-            ->index();
             $table->timestamps();
-
-            $table->foreign('id_pengantin_wanita')
-            ->references('id')
-            ->on('pengantin_wanita')
-            ->onUpdate('cascade');
         });
     }
 

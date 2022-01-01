@@ -16,15 +16,7 @@ class CreateFotoGalleryMasterTable extends Migration
         Schema::create('foto_gallery_master', function (Blueprint $table) {
             $table->increments('id');
             $table->string('foto_gallery', 200)->nullable();
-            $table->integer('id_foto_gallery')->unsigned()
-            ->nullable()
-            ->index();
             $table->timestamps();
-
-            $table->foreign('id_foto_gallery')
-            ->references('id')
-            ->on('foto_gallery')
-            ->onUpdate('cascade');
         });
     }
 

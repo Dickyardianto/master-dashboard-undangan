@@ -18,15 +18,7 @@ class CreateSosialMediaPriaTable extends Migration
             $table->string('instagram', 100)->nullable();
             $table->string('twitter', 100)->nullable();
             $table->string('facebook', 100)->nullable();
-            $table->integer('id_pengantin_pria')->unsigned()
-            ->nullable()
-            ->index();
             $table->timestamps();
-
-            $table->foreign('id_pengantin_pria')
-            ->references('id')
-            ->on('pengantin_pria')
-            ->onUpdate('cascade');
         });
     }
 
