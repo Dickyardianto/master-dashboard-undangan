@@ -238,7 +238,7 @@ class PengantinController extends Controller
         $id = $request->id;
         $akad_master = DB::table('akad_master')
         ->first();
-        return view('clients.akadMaster', ['id_client' => $id, 'akad_master' => $akad_master]);
+        return view('clients.formAkadMaster', ['id_client' => $id, 'akad_master' => $akad_master]);
     }
 
     public function inputAkad(Request $data, $id) {
@@ -266,6 +266,92 @@ class PengantinController extends Controller
             ]
         );
 
+        return back()->with('message', 'Data Berhasil Disimpan');
+    }
+
+    public function formSosialMedia(Request $request) {
+        $id = $request->id;
+        $sosial_media_pria = DB::table('sosial_media_pria')
+        ->first();
+        return view('clients.formSosialMediaMaster', ['id_client' => $id, 'sosial_media_pria' => $sosial_media_pria]);
+    }
+
+    public function inputSosialMedia(Request $data, $id) {
+        DB::table('sosial_media_pria')->insert(
+            [
+             'id_client' => $id,
+             'instagram' => $data->instagram,
+             'twitter' => $data->twitter,            
+             'facebook' => $data->facebook       
+            ]
+        );
+
+        return back()->with('message', 'Data Berhasil Disimpan');
+    }
+
+    public function formSosialMediaWanita(Request $request) {
+        $id = $request->id;
+        $sosial_media_wanita = DB::table('sosial_media_wanita')
+        ->first();
+        return view('clients.formSosialMediaWanitaMaster', ['id_client' => $id, 'sosial_media_wanita' => $sosial_media_wanita]);
+    }
+
+    public function inputSosialMediaWanita(Request $data, $id) {
+        DB::table('sosial_media_wanita')->insert(
+            [
+             'id_client' => $id,
+             'instagram' => $data->instagram,
+             'twitter' => $data->twitter,            
+             'facebook' => $data->facebook       
+            ]
+        );
+
+        return back()->with('message', 'Data Berhasil Disimpan');
+    }
+
+    public function formPendukung(Request $request) {
+        $id = $request->id;
+        $pendukung_master = DB::table('pendukung_master')
+        ->first();
+        return view('clients.formPendukungMaster', ['id_client' => $id, 'pendukung_master' => $pendukung_master]);
+    }
+
+    public function inputPendukung(Request $request, $id)
+    {
+        $request->validate(
+            [
+                'musik' => 'required|mimes:mp3',
+                'ayat_quotes' => 'required|max:250|min:5',
+                'maps' => 'required|max:200|min:5',
+                'quotes' => 'required|max:250|min:5'
+            ],
+            [
+                'musik.required' => 'Musik harus diisi!',
+                'ayat_quotes.required' => 'Setidaknya memiliki Quotes (ayat)!',
+                'ayat_quotes.max' => 'Maksimal 250 karakter!',
+                'ayat_quotes.min' => 'Minimal 5 karakter!',
+                'maps.required' => 'Setidaknya memiliki alamat berupa maps!',
+                'quotes.required' => 'Setidaknya memiliki Quotes',
+                'quotes.max' => 'Maksimal 250 karakter!',
+                'quotes.min' => 'Minimal 5 karakter!'
+            ]
+        );
+
+        $nf = $request->musik;
+        $namaFile = $nf->getClientOriginalName();
+
+        DB::table('pendukung_master')->insert(
+            [
+             'id_client' => $id,            
+             'musik' => time(). '-' .$namaFile,
+             'ayat_quotes' => $request->ayat_quotes,       
+             'maps' => $request->maps,       
+             'quotes_akhir' => $request->quotes       
+            ]
+        );
+  
+        $nf->move(public_path().'/uploads/musik', time(). '-' .$namaFile);
+   
         return back()->with('message', 'Data Berhasil Disimpan');
     }
     

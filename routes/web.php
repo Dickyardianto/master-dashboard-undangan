@@ -58,5 +58,14 @@ Route::group(['middleware' => 'auth'], function() {
         // Besan Wanita
     Route::get('/formakad/{id}', 'client\PengantinController@formAkad')->name('form-akad');
     Route::post('/inputakad/{id}', 'client\PengantinController@inputAkad')->name('input-akad');
+        // Sosial Media Pria
+    Route::get('/formsosialmedia/{id}', 'client\PengantinController@formSosialMedia')->name('form-sosial-media');
+    Route::post('/inputsosialmedia/{id}', 'client\PengantinController@inputSosialMedia')->name('input-sosial-media');
+        // Sosial Media Wanita
+    Route::get('/formsosialmediawanita/{id}', 'client\PengantinController@formSosialMediaWanita')->name('form-sosial-media-wanita');
+    Route::post('/inputsosialmediawanita/{id}', 'client\PengantinController@inputSosialMediaWanita')->name('input-sosial-media-wanita');
+        // Pendukung Master
+    Route::get('/formpendukung/{id}', 'client\PengantinController@formPendukung')->name('form-pendukung');
+    Route::post('/inputpendukung/{id}', 'client\PengantinController@inputPendukung')->name('input-pendukung');
 });
 
