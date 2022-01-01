@@ -12,7 +12,7 @@
 
 <div class="section-body">
   <div class="row">
-    <div class="col-5">
+    <div class="col-md-5 col-sm-12">
       @if (session('message'))
           <div class="alert alert-success autoHide alert-dismissible show fade">
             <div class="alert-body">
@@ -29,7 +29,7 @@
 
       {{-- Pengantin Pria --}}
       @if ($pendukung_master != null)
-      <div class="col-5">
+      <div class="col-md-5 col-sm-12">
         <label for="" class="text-danger">
             Table pendukung sudah terisi
         </label>
@@ -76,13 +76,13 @@
             </div>
             <div class="card-footer text-right" style="padding-top: 0px">
               <a href="{{ route('index') }}" class="btn btn-secondary">Kembali</a>
-              <a href="{{ route('form-sosial-media-wanita', $id_client) }}" class="btn btn-info ml-1">Lanjut</a>
+              <a href="{{ route('form-foto-gallery', $id_client) }}" class="btn btn-info ml-1">Lanjut</a>
             </div>
           </form>
           </div>
       </div>
       @else 
-      <div class="col-5">
+      <div class="col-md-5 col-sm-12">
         <div class="card">
           <form action="{{ route('input-pendukung', $id_client) }}" method="POST" enctype="multipart/form-data">
             @csrf

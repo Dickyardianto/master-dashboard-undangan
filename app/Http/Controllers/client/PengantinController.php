@@ -354,5 +354,14 @@ class PengantinController extends Controller
    
         return back()->with('message', 'Data Berhasil Disimpan');
     }
+
+    public function formFotoGallery(Request $request) {
+        $id = $request->id;
+        $foto_gallery = DB::table('foto_gallery')
+        ->first();
+        return view('clients.formFotoGallery', ['id_client' => $id, 'foto_gallery' => $foto_gallery]);
+    }
+
+    
     
 }

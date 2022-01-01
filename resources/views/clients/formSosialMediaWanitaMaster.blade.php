@@ -12,7 +12,7 @@
 
 <div class="section-body">
   <div class="row">
-    <div class="col-5">
+    <div class="col-md-5 col-sm-12">
       @if (session('message'))
           <div class="alert alert-success autoHide alert-dismissible show fade">
             <div class="alert-body">
@@ -29,7 +29,7 @@
 
       {{-- Pengantin Pria --}}
       @if ($sosial_media_wanita != null)
-      <div class="col-5">
+      <div class="col-md-5 col-sm-12">
         <label for="" class="text-danger">
             Sosial media wanita sudah terisi
         </label>
@@ -73,7 +73,7 @@
           </div>
       </div>
       @else 
-      <div class="col-5">
+      <div class="col-md-5 col-sm-12">
         <div class="card">
           <form action="{{ route('input-sosial-media-wanita', $id_client) }}" method="POST" enctype="multipart/form-data">
             @csrf

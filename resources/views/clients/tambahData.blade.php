@@ -12,7 +12,7 @@
 
 <div class="section-body">
     <div class="row">
-      <div class="col-5">
+      <div class="col-md-4 col-sm-12">
         <div class="card">
           <form action="{{ route('create-data') }}" method="POST">
             @csrf
