@@ -357,7 +357,9 @@ class PengantinController extends Controller
 
     public function formFotoGallery(Request $request) {
         $id = $request->id;
-        return view('clients.formFotoGallery', ['id_client' => $id]);
+        $foto_gallery = DB::table('foto_gallery_master')
+        ->first();
+        return view('clients.formFotoGallery', ['id_client' => $id, 'foto_gallery' => $foto_gallery]);
     }
 
     public function form6FotoGallery(Request $request) {
@@ -414,12 +416,99 @@ class PengantinController extends Controller
             ]
         );
   
-        $foto_1->move(public_path().'/uploads/foto-6-gallery', time(). '-' .$namaFileFoto1);
-        $foto_2->move(public_path().'/uploads/foto-6-gallery', time(). '-' .$namaFileFoto2);
-        $foto_3->move(public_path().'/uploads/foto-6-gallery', time(). '-' .$namaFileFoto3);
-        $foto_4->move(public_path().'/uploads/foto-6-gallery', time(). '-' .$namaFileFoto4);
-        $foto_5->move(public_path().'/uploads/foto-6-gallery', time(). '-' .$namaFileFoto5);
-        $foto_6->move(public_path().'/uploads/foto-6-gallery', time(). '-' .$namaFileFoto6);
+        $foto_1->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto1);
+        $foto_2->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto2);
+        $foto_3->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto3);
+        $foto_4->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto4);
+        $foto_5->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto5);
+        $foto_6->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto6);
+   
+        return back()->with('message', 'Data Berhasil Disimpan');
+   
+    }
+
+    public function form12FotoGallery(Request $request) {
+        $id = $request->id;
+        $foto_gallery = DB::table('foto_gallery_master')
+        ->first();
+        return view('clients.form12FotoGallery', ['id_client' => $id, 'foto_gallery' => $foto_gallery]);
+    }
+
+    public function input12FotoGallery(Request $request, $id)
+    {
+        $request->validate(
+            [
+                'foto1' => 'required|mimes:jpeg,bmp,png',
+                'foto2' => 'required|mimes:jpeg,bmp,png',
+                'foto3' => 'required|mimes:jpeg,bmp,png',
+                'foto4' => 'required|mimes:jpeg,bmp,png',
+                'foto5' => 'required|mimes:jpeg,bmp,png',
+                'foto6' => 'required|mimes:jpeg,bmp,png',
+                'foto7' => 'required|mimes:jpeg,bmp,png',
+                'foto8' => 'required|mimes:jpeg,bmp,png',
+                'foto9' => 'required|mimes:jpeg,bmp,png',
+                'foto10' => 'required|mimes:jpeg,bmp,png',
+                'foto11' => 'required|mimes:jpeg,bmp,png',
+                'foto12' => 'required|mimes:jpeg,bmp,png'
+            ]
+        );
+
+        $foto_1 = $request->foto1;
+        $foto_2 = $request->foto2;
+        $foto_3 = $request->foto3;
+        $foto_4 = $request->foto4;
+        $foto_5 = $request->foto5;
+        $foto_6 = $request->foto6;
+        $foto_7 = $request->foto7;
+        $foto_8 = $request->foto8;
+        $foto_9 = $request->foto9;
+        $foto_10 = $request->foto10;
+        $foto_11 = $request->foto11;
+        $foto_12 = $request->foto12;
+
+        $namaFileFoto1 = $foto_1->getClientOriginalName();
+        $namaFileFoto2 = $foto_2->getClientOriginalName();
+        $namaFileFoto3 = $foto_3->getClientOriginalName();
+        $namaFileFoto4 = $foto_4->getClientOriginalName();
+        $namaFileFoto5 = $foto_5->getClientOriginalName();
+        $namaFileFoto6 = $foto_6->getClientOriginalName();
+        $namaFileFoto7 = $foto_7->getClientOriginalName();
+        $namaFileFoto8 = $foto_8->getClientOriginalName();
+        $namaFileFoto9 = $foto_9->getClientOriginalName();
+        $namaFileFoto10 = $foto_10->getClientOriginalName();
+        $namaFileFoto11 = $foto_11->getClientOriginalName();
+        $namaFileFoto12 = $foto_12->getClientOriginalName();
+
+        DB::table('foto_gallery_master')->insert(
+            [
+             'id_client' => $id,            
+             'foto_gallery_1' => time(). '-' .$namaFileFoto1,            
+             'foto_gallery_2' => time(). '-' .$namaFileFoto2,            
+             'foto_gallery_3' => time(). '-' .$namaFileFoto3,            
+             'foto_gallery_4' => time(). '-' .$namaFileFoto4,            
+             'foto_gallery_5' => time(). '-' .$namaFileFoto5,            
+             'foto_gallery_6' => time(). '-' .$namaFileFoto6,         
+             'foto_gallery_7' => time(). '-' .$namaFileFoto7,         
+             'foto_gallery_8' => time(). '-' .$namaFileFoto8,         
+             'foto_gallery_9' => time(). '-' .$namaFileFoto9,         
+             'foto_gallery_10' => time(). '-' .$namaFileFoto10,         
+             'foto_gallery_11' => time(). '-' .$namaFileFoto11,         
+             'foto_gallery_12' => time(). '-' .$namaFileFoto12         
+            ]
+        );
+  
+        $foto_1->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto1);
+        $foto_2->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto2);
+        $foto_3->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto3);
+        $foto_4->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto4);
+        $foto_5->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto5);
+        $foto_6->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto6);
+        $foto_7->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto7);
+        $foto_8->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto8);
+        $foto_9->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto9);
+        $foto_10->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto10);
+        $foto_11->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto11);
+        $foto_12->move(public_path().'/uploads/foto-gallery', time(). '-' .$namaFileFoto12);
    
         return back()->with('message', 'Data Berhasil Disimpan');
    
