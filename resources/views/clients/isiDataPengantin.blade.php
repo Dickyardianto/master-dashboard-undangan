@@ -39,7 +39,7 @@
             <div class="card-body" style="padding-bottom: 0px;">
               <div class="form-group" style="margin-bottom: 0px;">
                 <label>Nama Pengantin Pria</label>
-                <input type="text" class="form-control" name="nama_pengantin_pria" value="{{ old('nama_pengantin_pria') }}" disabled>
+                <input type="text" class="form-control" name="nama_pengantin_pria" value="{{ $data_pengantin_pria->nama_pengantin_pria }}" disabled>
                 <label for="" class="text-danger">
                   @error('nama_pengantin_pria')
                     {{ $message }}

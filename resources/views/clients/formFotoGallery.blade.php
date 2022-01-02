@@ -16,7 +16,7 @@
     <div class="col-md-4 col-sm-12">
         <div class="card border-card" style="width: 18rem;">
             <div class="card-body text-center">
-              <a href="">
+              <a href="{{ route('form-6-foto-gallery', $id_client) }}">
                 <div class="">
                   <p class="card-text text-center mt-2">6 Foto</p>
                 </div>

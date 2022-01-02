@@ -40,7 +40,7 @@
 
               <div class="form-group" style="margin-bottom: 0px;">
                 <label>Tanggal Akad</label>
-                <input type="date" class="form-control" name="tanggal_akad" value="{{ old('tanggal_akad') }}" disabled>
+                <input type="date" class="form-control" name="tanggal_akad" value="{{ $akad_master->tanggal_akad }}" disabled>
                 <label for="" class="text-danger">
                   @error('tanggal_akad')
                     {{ $message }}
@@ -49,7 +49,7 @@
               </div>
               <div class="mb-3">
                 <label for="pukul" class="form-label">Pukul</label>
-                <input class="form-control" type="time" id="pukul" name="pukul_akad" disabled>
+                <input class="form-control" type="time" id="pukul" name="pukul_akad" value="{{ $akad_master->pukul }}" disabled>
                 <label for="" class="text-danger">
                   @error('pukul_akad')
                     {{ $message }}
@@ -58,7 +58,7 @@
               </div>
               <div class="mb-3">
                 <label for="lokasi" class="form-label">Lokasi</label>
-                <input class="form-control" type="text" id="lokasi" name="lokasi_akad" value="{{ old('lokasi_akad') }}" disabled>
+                <input class="form-control" type="text" id="lokasi" name="lokasi_akad" value="{{ $akad_master->lokasi_akad }}" disabled>
                 <label for="" class="text-danger">
                   @error('lokasi_akad')
                     {{ $message }}

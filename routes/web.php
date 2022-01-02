@@ -69,6 +69,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/inputpendukung/{id}', 'client\PengantinController@inputPendukung')->name('input-pendukung');
         // Foto Gallery
     Route::get('/formfotogallery/{id}', 'client\PengantinController@formFotoGallery')->name('form-foto-gallery');
-    Route::post('/inputFotoGallery/{id}', 'client\PengantinController@inputFotoGallery')->name('input-foto-gallery');
+        // Foto Gallery 6 Foto
+    Route::get('/form6fotogallery/{id}', 'client\PengantinController@form6FotoGallery')->name('form-6-foto-gallery');
+    Route::post('/input6FotoGallery/{id}', 'client\PengantinController@input6FotoGallery')->name('input-6-foto-gallery');
 });
 

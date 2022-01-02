@@ -40,7 +40,7 @@
 
               <div class="form-group" style="margin-bottom: 0px;">
                 <label>Nama ayah besan wanita</label>
-                <input type="text" class="form-control" name="nama_ayah" value="{{ old('nama_ayah') }}" disabled>
+                <input type="text" class="form-control" name="nama_ayah" value="{{ $besan_wanita->nama_ayah }}" disabled>
                 <label for="" class="text-danger">
                   @error('nama_ayah')
                     {{ $message }}
@@ -49,7 +49,7 @@
               </div>
               <div class="mb-3">
                   <label for="nama-ibu" class="form-label">Nama ibu besan wanita</label>
-                  <input class="form-control" type="text" id="nama-ibu" name="nama_ibu" disabled>
+                  <input class="form-control" type="text" id="nama-ibu" name="nama_ibu" value="{{ $besan_wanita->nama_ibu }}" disabled>
                   <label for="" class="text-danger">
                     @error('nama_ibu')
                       {{ $message }}

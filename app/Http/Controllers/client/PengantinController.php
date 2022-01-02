@@ -357,11 +357,73 @@ class PengantinController extends Controller
 
     public function formFotoGallery(Request $request) {
         $id = $request->id;
-        $foto_gallery = DB::table('foto_gallery')
-        ->first();
-        return view('clients.formFotoGallery', ['id_client' => $id, 'foto_gallery' => $foto_gallery]);
+        return view('clients.formFotoGallery', ['id_client' => $id]);
     }
 
+    public function form6FotoGallery(Request $request) {
+        $id = $request->id;
+        $foto_gallery = DB::table('foto_gallery_master')
+        ->first();
+        return view('clients.form6FotoGallery', ['id_client' => $id, 'foto_gallery' => $foto_gallery]);
+    }
+
+    public function input6FotoGallery(Request $request, $id)
+    {
+        $request->validate(
+            [
+                'foto1' => 'required|mimes:jpeg,bmp,png',
+                'foto2' => 'required|mimes:jpeg,bmp,png',
+                'foto3' => 'required|mimes:jpeg,bmp,png',
+                'foto4' => 'required|mimes:jpeg,bmp,png',
+                'foto5' => 'required|mimes:jpeg,bmp,png',
+                'foto6' => 'required|mimes:jpeg,bmp,png'
+            ],
+            [
+                'foto1.required' => 'Foto harus diisi!',
+                'foto2.required' => 'Foto harus diisi!',
+                'foto3.required' => 'Foto harus diisi!',
+                'foto4.required' => 'Foto harus diisi!',
+                'foto5.required' => 'Foto harus diisi!',
+                'foto6.required' => 'Foto harus diisi!'
+            ]
+        );
+
+        $foto_1 = $request->foto1;
+        $foto_2 = $request->foto2;
+        $foto_3 = $request->foto3;
+        $foto_4 = $request->foto4;
+        $foto_5 = $request->foto5;
+        $foto_6 = $request->foto6;
+
+        $namaFileFoto1 = $foto_1->getClientOriginalName();
+        $namaFileFoto2 = $foto_2->getClientOriginalName();
+        $namaFileFoto3 = $foto_3->getClientOriginalName();
+        $namaFileFoto4 = $foto_4->getClientOriginalName();
+        $namaFileFoto5 = $foto_5->getClientOriginalName();
+        $namaFileFoto6 = $foto_6->getClientOriginalName();
+
+        DB::table('foto_gallery_master')->insert(
+            [
+             'id_client' => $id,            
+             'foto_gallery_1' => time(). '-' .$namaFileFoto1,            
+             'foto_gallery_2' => time(). '-' .$namaFileFoto2,            
+             'foto_gallery_3' => time(). '-' .$namaFileFoto3,            
+             'foto_gallery_4' => time(). '-' .$namaFileFoto4,            
+             'foto_gallery_5' => time(). '-' .$namaFileFoto5,            
+             'foto_gallery_6' => time(). '-' .$namaFileFoto6         
+            ]
+        );
+  
+        $foto_1->move(public_path().'/uploads/foto-6-gallery', time(). '-' .$namaFileFoto1);
+        $foto_2->move(public_path().'/uploads/foto-6-gallery', time(). '-' .$namaFileFoto2);
+        $foto_3->move(public_path().'/uploads/foto-6-gallery', time(). '-' .$namaFileFoto3);
+        $foto_4->move(public_path().'/uploads/foto-6-gallery', time(). '-' .$namaFileFoto4);
+        $foto_5->move(public_path().'/uploads/foto-6-gallery', time(). '-' .$namaFileFoto5);
+        $foto_6->move(public_path().'/uploads/foto-6-gallery', time(). '-' .$namaFileFoto6);
+   
+        return back()->with('message', 'Data Berhasil Disimpan');
+   
+    }
     
     
 }

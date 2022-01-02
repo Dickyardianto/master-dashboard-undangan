@@ -39,7 +39,7 @@
             <div class="card-body" style="padding-bottom: 0px;">
               <div class="form-group" style="margin-bottom: 0px;">
                 <label>Alamat Nikah</label>
-                <input type="text" class="form-control" name="alamat_nikah" value="{{ old('alamat_nikah') }}" disabled>
+                <input type="text" class="form-control" name="alamat_nikah" value="{{ $alamat_nikah->alamat_nikah }}" disabled>
                 <label for="" class="text-danger">
                   @error('alamat_nikah')
                     {{ $message }}
@@ -48,7 +48,7 @@
               </div>
               <div class="mb-3">
                   <label for="tanggal-nikah" class="form-label">Tanggal Nikah</label>
-                  <input class="form-control" type="date" id="tanggal-nikah" name="tanggal_nikah" disabled>
+                  <input class="form-control" type="date" id="tanggal-nikah" name="tanggal_nikah" value="{{ $alamat_nikah->tanggal_nikah }}" disabled>
                   <label for="" class="text-danger">
                     @error('tanggal_nikah')
                       {{ $message }}

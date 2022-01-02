@@ -39,7 +39,7 @@
             <div class="card-body" style="padding-bottom: 0px;">
               <div class="form-group" style="margin-bottom: 0px;">
                 <label>Musik</label>
-                <input type="file" class="form-control" name="musik" value="{{ old('musik') }}" disabled>
+                <input type="file" class="form-control" name="musik"  disabled>
                 <label for="" class="text-danger">
                   @error('musik')
                     {{ $message }}
@@ -48,7 +48,7 @@
               </div>
               <div class="mb-3">
                   <label for="ayat" class="form-label">Quotes (Ayat)</label>
-                  <input class="form-control" type="text" id="ayat" name="ayat_quotes" disabled>
+                  <input class="form-control" type="text" id="ayat" name="ayat_quotes" value="{{ $pendukung_master->ayat_quotes }}" disabled>
                   <label for="" class="text-danger">
                     @error('ayat_quotes')
                       {{ $message }}
@@ -57,7 +57,7 @@
               </div>
               <div class="mb-3">
                 <label for="maps" class="form-label">Maps</label>
-                <input class="form-control" type="text" id="maps" name="maps" value="{{ old('maps') }}" disabled>
+                <input class="form-control" type="text" id="maps" name="maps" value="{{ $pendukung_master->maps }}" disabled>
                 <label for="" class="text-danger">
                   @error('maps')
                     {{ $message }}
@@ -66,7 +66,7 @@
               </div>
               <div class="mb-3">
                 <label for="quotes" class="form-label">Quotes</label>
-                <input class="form-control" type="text" id="quotes" name="quotes" value="{{ old('quotes') }}" disabled>
+                <input class="form-control" type="text" id="quotes" name="quotes" value="{{ $pendukung_master->quotes_akhir }}"disabled>
                 <label for="" class="text-danger">
                   @error('quotes')
                     {{ $message }}

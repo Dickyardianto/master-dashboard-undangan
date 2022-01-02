@@ -39,7 +39,11 @@
             <div class="card-body" style="padding-bottom: 0px;">
               <div class="form-group" style="margin-bottom: 0px;">
                 <label>Instagram</label>
-                <input type="text" class="form-control" name="instagram" value="{{ old('instagram') }}" disabled>
+                <input type="text" class="form-control" name="instagram" @if($sosial_media_pria->instagram == null) {
+                  value="Tidak ada instagram"
+                } @else {
+                  value="{{ $sosial_media_pria->instagram }}"
+                } @endif disabled>
                 <label for="" class="text-danger">
                   @error('instagram')
                     {{ $message }}
@@ -48,7 +52,11 @@
               </div>
               <div class="mb-3">
                   <label for="twitter" class="form-label">Twitter</label>
-                  <input class="form-control" type="text" id="twitter" name="twitter" disabled>
+                  <input class="form-control" type="text" id="twitter" name="twitter"  @if($sosial_media_pria->twitter == null) {
+                    value="Tidak ada twitter"
+                  } @else {
+                    value="{{ $sosial_media_pria->twitter }}"
+                  } @endif disabled>
                   <label for="" class="text-danger">
                     @error('twitter')
                       {{ $message }}
@@ -57,7 +65,11 @@
               </div>
               <div class="mb-3">
                 <label for="facebook" class="form-label">Facebook</label>
-                <input class="form-control" type="text" id="facebook" name="facebook" value="{{ old('facebook') }}" disabled>
+                <input class="form-control" type="text" id="facebook" name="facebook"  @if($sosial_media_pria->facebook == null) {
+                  value="Tidak ada facebook"
+                } @else {
+                  value="{{ $sosial_media_pria->facebook }}"
+                } @endif disabled>
                 <label for="" class="text-danger">
                   @error('facebook')
                     {{ $message }}

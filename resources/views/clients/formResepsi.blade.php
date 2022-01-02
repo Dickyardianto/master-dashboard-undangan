@@ -39,7 +39,7 @@
             <div class="card-body" style="padding-bottom: 0px;">
               <div class="form-group" style="margin-bottom: 0px;">
                 <label>Tanggal Resepsi</label>
-                <input type="date" class="form-control" name="tanggal_resepsi" value="{{ old('tanggal_resepsi') }}" disabled>
+                <input type="date" class="form-control" name="tanggal_resepsi" value="{{ $resepsi->tanggal_resepsi }}" disabled>
                 <label for="" class="text-danger">
                   @error('tanggal_resepsi')
                     {{ $message }}
@@ -48,7 +48,7 @@
               </div>
               <div class="mb-3">
                   <label for="pukul" class="form-label">Pukul</label>
-                  <input class="form-control" type="time" id="pukul" name="pukul_resepsi" disabled>
+                  <input class="form-control" type="time" id="pukul" name="pukul_resepsi" value="{{ $resepsi->pukul }}" disabled>
                   <label for="" class="text-danger">
                     @error('pukul_resepsi')
                       {{ $message }}
@@ -57,7 +57,7 @@
               </div>
               <div class="mb-3">
                 <label for="lokasi" class="form-label">Lokasi</label>
-                <input class="form-control" type="text" id="lokasi" name="lokasi_resepsi" value="{{ old('lokasi_resepsi') }}" disabled>
+                <input class="form-control" type="text" id="lokasi" name="lokasi_resepsi" value="{{ $resepsi->lokasi_resepsi }}" disabled>
                 <label for="" class="text-danger">
                   @error('lokasi_resepsi')
                     {{ $message }}
